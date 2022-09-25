@@ -1,0 +1,16 @@
+server:
+  port: 8090
+
+spring:
+  application:
+    name: api-gateway
+  # gateway config
+  cloud:
+    gateway:
+      routes:
+        - id: test-baidu
+          uri: https://www.baidu.com
+          predicates:
+            - Path=/bd/**
+          filters:
+            - StripPrefix=1
